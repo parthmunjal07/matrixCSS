@@ -1,4 +1,4 @@
-import typography from "../styles/typography";
+import combineStyle from "./stylesCombined.js";
 
 const applyStyles = (element, styleDef) => {
     element.style[styleDef.property] = styleDef.value;
@@ -12,10 +12,12 @@ const parseDOM = () => {
         for (let j=0; j<elements[i].classList.length; j++){
             let currClass = elements[i].classList[j]
 
-            if (typography.hasOwnProperty(currClass)) {
-                applyStyles(elements[i], typography[currClass])
+            if (combineStyle.hasOwnProperty(currClass)) {
+                applyStyles(elements[i], combineStyle[currClass])
             }
             
         }
     }
 }
+
+export default parseDOM
