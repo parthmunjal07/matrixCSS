@@ -3,36 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matrix CSS - Construct</title>
+    <title>Matrix CSS - Combat Training</title>
 </head>
 <body class="neo-bg-matrix neo-flex neo-items-center neo-justify-center neo-absolute neo-inset-0 neo-m-0">
 
-    <div class="neo-bg-gray-dark neo-border-2 neo-border-code neo-rounded-lg neo-p-8 neo-flex neo-flex-col neo-items-center">
+    <div id="target-card" class="neo-bg-gray-dark neo-border-2 neo-border-code neo-rounded-lg neo-p-8 neo-flex neo-flex-col neo-items-center neo-transition neo-duration-bullet-time neo-ease-dodge">
         
-        <h1 class="neo-text-xl neo-font-bold neo-text-code neo-mb-4 neo-m-0">
-            System Access
+        <h1 class="neo-text-xl neo-font-matrix neo-text-code neo-text-glow neo-mb-4 neo-m-0">
+            Combat Training
         </h1>
         
-        <p class="neo-text-sm neo-text-matrix neo-mb-8 neo-text-center">
-            Select your path to enter the Matrix.
+        <p class="neo-text-sm neo-text-construct neo-mb-8 neo-text-center">
+            Click the button below to execute the dodge sequence.
         </p>
 
-        <div class="neo-grid neo-grid-cols-2 neo-gap-4 neo-mb-8">
-            <div class="neo-bg-blue-pill neo-text-construct neo-font-bold neo-p-2 neo-rounded-sm neo-text-center">
-                Blue Pill
-            </div>
-            <div class="neo-bg-red-pill neo-text-construct neo-font-bold neo-p-2 neo-rounded-sm neo-text-center">
-                Red Pill
-            </div>
-        </div>
-
-        <p class="neo-text-sm neo-font-light neo-text-code neo-m-0">
-            > Connection established...
-        </p>
+        <button id="action-btn" class="neo-bg-code neo-text-matrix neo-font-bold neo-p-2 neo-rounded-sm neo-border-none">
+            Execute Dodge
+        </button>
 
     </div>
 
     <script type="module" src="./main.js"></script>
     
+    <script>
+        // We wait a brief moment to ensure Matrix CSS has styled everything first
+        setTimeout(() => {
+            const btn = document.getElementById('action-btn');
+            const card = document.getElementById('target-card');
+
+            btn.addEventListener('click', () => {
+                // We manually change the style here to trigger the transition.
+                // Notice how it doesn't snap instantly! It bends and flexes.
+                if (card.style.transform === 'scale(1.1)') {
+                    card.style.transform = 'scale(1)';
+                    card.style.borderColor = '#00FF41'; // Back to green
+                } else {
+                    card.style.transform = 'scale(1.1)';
+                    card.style.borderColor = '#ff003c'; // Turns red
+                }
+            });
+        }, 500);
+    </script>
 </body>
 </html>
