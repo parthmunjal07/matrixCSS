@@ -13,3 +13,5 @@ const typography = {
     'neo-text-center': {property: 'textAlign', value:'center'},
     'neo-text-right': {property: 'textAlign', value:'right'},
 }
+
+export default typography
